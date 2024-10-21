@@ -5,6 +5,7 @@ import { poppins } from "@/config/fonts";
 export const metadata: Metadata = {
   title: "ChocoBesos",
   description: "Florería y regalos",
+
 };
 export default function RootLayout({
   children,
@@ -12,7 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en"
+    >
       <body
         className={poppins.className}
       >
