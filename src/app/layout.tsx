@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { poppins } from "@/config/fonts";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: "ChocoBesos",
@@ -20,6 +21,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <GoogleAnalytics gaId="G-G1N67BNELR" />
     </html>
   );
 }

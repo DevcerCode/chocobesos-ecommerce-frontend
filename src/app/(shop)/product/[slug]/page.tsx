@@ -1,7 +1,10 @@
+'use client'
+
 import { ProductSlideshow, QuantitySelector, SizeSelector } from "@/components";
 import { ProductMobileSlideshow } from "@/components/product/slideshow/ProductMobileSlideshow";
 import { titleFont } from "@/config/fonts";
 import { initialData } from "@/seed/seed";
+import { sendGAEvent } from "@next/third-parties/google";
 
 interface Props {
   params: {
@@ -12,7 +15,7 @@ interface Props {
 export default function ({ params }: Props) {
 
   const { slug } = params
-  const product = initialData.products.find(product => product?.slug === slug)
+  const product = initialData?.products?.find(product => product?.slug === slug)
 
   return (
     <div className="mt-5 mb-20 grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -52,7 +55,9 @@ export default function ({ params }: Props) {
 
         {/* button */}
 
-        <button className="btn-primary my-5">
+        <button
+          onClick={() => sendGAEvent({ event: "Agregar al carrito", value: "Product" })}
+          className="btn-primary my-5">
           Agregar al carrito
         </button>
 
