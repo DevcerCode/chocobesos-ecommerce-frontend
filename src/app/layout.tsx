@@ -13,15 +13,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const GAId = process.env.GOOGLE_ANALYTICS_ID ?? ''
+
   return (
     <html lang="en"
     >
+      <GoogleAnalytics gaId={GAId} />
       <body
         className={poppins.className}
       >
         {children}
       </body>
-      <GoogleAnalytics gaId="G-G1N67BNELR" />
     </html>
   );
 }
