@@ -25,6 +25,8 @@ export default function ({ params }: Props) {
     'chocolates': 'Chocolates'
   }
 
+
+
   console.log(Object.keys(labels[id]))
 
   if (products.length === 0) {

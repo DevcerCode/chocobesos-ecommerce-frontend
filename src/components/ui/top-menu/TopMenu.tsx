@@ -1,9 +1,10 @@
 'use client'
-import React from 'react'
+import React, { useCallback } from 'react'
 import Link from 'next/link'
 import { titleFont } from '@/config/fonts'
 import { IoSearchOutline, IoCartOutline } from 'react-icons/io5'
 import { useUIStore } from '@/store'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export const TopMenu = () => {
 
@@ -17,11 +18,11 @@ export const TopMenu = () => {
                 </Link>
             </div>
             <div className='hidden sm:block'>
-                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/love"}>Amor</Link>
-                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/friendship"}>Amistad</Link>
-                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/anniversary"}>Aniversario</Link>
-                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/stuffed"}>Peluches</Link>
-                <Link className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/chocolates"}>Chocolates</Link>
+                <Link onClick={() => sendGTMEvent({ event: "CategorySelected", value: 'Amor' })} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/love"}>Amor</Link>
+                <Link onClick={() => sendGTMEvent({ event: "CategorySelected", value: 'Amistad' })} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/friendship"}>Amistad</Link>
+                <Link onClick={() => sendGTMEvent({ event: "CategorySelected", value: 'Aniversario' })} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/anniversary"}>Aniversario</Link>
+                <Link onClick={() => sendGTMEvent({ event: "CategorySelected", value: 'Peluches' })} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/stuffed"}>Peluches</Link>
+                <Link onClick={() => sendGTMEvent({ event: "CategorySelected", value: 'Chocolate' })} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100' href={"/category/chocolates"}>Chocolates</Link>
             </div>
 
             {/* Search, Cart, Menu */}
