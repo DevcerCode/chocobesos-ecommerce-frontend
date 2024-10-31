@@ -15,6 +15,7 @@ export default function RootLayout({
 }>) {
 
   const GAId = process.env.GOOGLE_ANALYTICS_ID ?? ''
+  const gtmId = process.env.GTMID ?? ''
 
   return (
     <html lang="en"
@@ -23,7 +24,7 @@ export default function RootLayout({
 
       </head>
       {/* <GoogleAnalytics gaId={GAId} /> */}
-      <GoogleTagManager gtmId="GTM-KLVM56Z7" />
+      <GoogleTagManager gtmId={gtmId} />
       <body
         className={poppins.className}
       >
