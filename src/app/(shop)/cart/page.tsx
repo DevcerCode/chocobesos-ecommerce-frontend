@@ -3,12 +3,15 @@ import { QuantitySelector, Title } from "@/components";
 import { initialData } from "@/seed/seed";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const productInCart = [
   initialData.products[0],
   initialData.products[1],
   initialData.products[2],
 ]
+
+const total = 20
 
 export default function () {
 
@@ -79,6 +82,7 @@ export default function () {
 
             <div className="mt-5 mb-2 w-full">
               <Link
+                onClick={() => sendGTMEvent({ event: "CheckoutSelected", value: JSON.stringify({ products: productInCart, total }) })}
                 className="flex btn-primary justify-center "
                 href={`/checkout/address`}>
                 Checkout

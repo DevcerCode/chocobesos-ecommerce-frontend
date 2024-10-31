@@ -23,8 +23,8 @@ export default function RootLayout({
       <head>
 
       </head>
-      {/* <GoogleAnalytics gaId={GAId} /> */}
-      <GoogleTagManager gtmId={gtmId} />
+      <GoogleAnalytics gaId={GAId} />
+      {/* <GoogleTagManager gtmId={gtmId} /> */}
       <body
         className={poppins.className}
       >

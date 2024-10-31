@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Product } from "@/interface"
 import Image from "next/image"
 import Link from "next/link"
+import { sendGTMEvent } from "@next/third-parties/google"
 
 interface Props {
     product: Product
@@ -28,6 +29,7 @@ export const ProductGridItem = ({ product }: Props) => {
             </Link>
             <div className="p-4 flex flex-col">
                 <Link
+                    onClick={() => sendGTMEvent({ event: "ProductSelected", value: product.slug })}
                     className="hover:text-blue-600"
                     href={`/product/${product.slug}`}>
                     {product.title}
